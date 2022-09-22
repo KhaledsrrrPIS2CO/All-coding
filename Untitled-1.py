@@ -10,3 +10,4 @@ import numpy
 print("test")
 pi_squared = 5 * 2
 print("this is the squred:", pi_squared)
+#this is a test to see how this thing work
