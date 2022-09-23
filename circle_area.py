@@ -1,4 +1,4 @@
-#2 types of programmers 
+ #2 types of programmers 
 #firrst they think for the best and they verify the others they assume it is the best 
 """
 import math
@@ -23,6 +23,8 @@ print("this is the squred:", pi_squared)
 #lest stratt and discove this modile bny calculating the area o a circle 
 # A = pi * r**2
 def circle_area(r):
+    if r < 0:
+        raise ValueError("The radius cannt be negative")
     return pi*(r**2)
 
 #test functrion
@@ -34,3 +36,4 @@ for r in radii:
     print(message.format(radius=r, area=A))
 
 
+print("ttest")
