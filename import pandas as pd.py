@@ -13,3 +13,18 @@ if __name__ == "__main__":
     test_run()
 
 
+def get_max_close(symbol):
+    """gets the mac closing price of a stock and it gets symbol
+    Data of the stock is stored locally all coding/data/<symbol>.csv
+    """
+    df = pd.read_csv("data/AAPL.csv")
+    return df['Colse'].max() # compute and returns max 
+
+def test_run():
+    """Fun called by test called by testrun"""
+    for symbol in ['AAPL', 'TWTR']:
+        print("Max close")
+        print (symbol,":", get_max_close)
+
+test_run()
+    
