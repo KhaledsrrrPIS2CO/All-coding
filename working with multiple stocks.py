@@ -26,9 +26,9 @@ def test_run():
     dfSPY = pd.read_csv("data/SPY.csv")
     print("this pure",dfSPY)
     #now we join the 2 dataframe
-    #df1 = df1.join(dfSPY)
+    df1 = df1.join(dfSPY)
 
-    #print("this is SPYYY",df1)
+    print("this is SPYYY",df1)
 
 
 
