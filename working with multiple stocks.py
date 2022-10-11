@@ -79,3 +79,5 @@ def plot_close_n_adjClose():
 
 if __name__ == "__main__":
         plot_close_n_adjClose()
+
+df = 2
