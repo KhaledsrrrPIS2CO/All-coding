@@ -1,3 +1,36 @@
 import pandas as pd
 
-print("hit")
+print("woo")
+def test_run():
+    start_date = ' 2022-10-01'
+    end_date = '2022-10-10'
+    dates = pd.date_range(start_date, end_date) # called daterange fun (for index)
+    
+    #create empty dataframe
+    df_empty = pd.DataFrame(index=dates) 
+    print("dfempty:", df_empty)
+    print()
+    
+    #Read spy data into tempo datafram
+    dfSPY = pd.read_csv("/Users/khaled/All coding/data/SPY.csv", index_col="Date", 
+                        parse_dates=True, usecols=['Date', 'Adj Close'], na_values=['nan'])
+    print("dfspy: " ,df_empty)
+    df_empty=df_empty.join(dfSPY)
+    df_empty= df_empty.dropna()
+    print()
+    print("after merger/join: ",df_empty)
+    
+    #join the 2 datafraames using DataFrame.join()
+    
+    
+    
+
+if __name__ == "__main__":
+    test_run()
+    
+#now we join the sSPY data with df_empty
+
+    
+
+
+    
