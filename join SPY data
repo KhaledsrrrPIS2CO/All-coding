@@ -30,6 +30,8 @@ if __name__ == "__main__":
     
 #now we join the sSPY data with df_empty
 #tom will be cont
+#read more stocks + obtiing slice of SPY data
+
 
     
 
