@@ -1,9 +1,10 @@
 import pandas as pd
 
+
 print("woo")
 def test_run():
     start_date = ' 2022-10-01'
-    end_date = '2022-10-10'
+    end_date = '2022-10-18'
     dates = pd.date_range(start_date, end_date) # called daterange fun (for index)
     
     #create empty dataframe
@@ -16,24 +17,27 @@ def test_run():
                         parse_dates=True, usecols=['Date', 'Adj Close'], na_values=['nan'])
     print("dfspy: " ,df_empty)
     df_empty=df_empty.join(dfSPY)
+    #drop NaN Values
     df_empty= df_empty.dropna()
     print()
     print("after merger/join: ",df_empty)
+    print("bbbboooom")
+    #read more stocks
+    symbols = ['GOOG', 'AAPL', 'GLD']
     
-    #join the 2 datafraames using DataFrame.join()
-    
+    for symbol in symbols:
+        df_temp = pd.read_csv("/Users/khaled/All coding/data/{}.csv".format(symbol), index_col ='Date', 
+                              parse_dates=True, usecols=['Date', 'Adj Close'],
+                              na_values=['nan'])
+        df = df_empty.join(df_temp)
+    print(df_empty)
     
     
 
 if __name__ == "__main__":
     test_run()
     
-#now we join the sSPY data with df_empty
-#tom will be cont
-#read more stocks + obtiing slice of SPY data
-#read more stocks + obtiing slice of SPY data
-#. Utility functions for reading data
-#madelbrot algo
+
 
 
     
