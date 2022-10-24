@@ -22,8 +22,6 @@ def test_run():
     #join the 2 DF using DataFrame.join(), with how='inner'
     print("dfspy: " ,df1)
     df1=df1.join(dfSPY,how='inner')
-    print("after join")
-    print(df1)
    
     #read more stocks
     symbols = ['GOOG', 'AAPL', 'GLD']
@@ -34,7 +32,8 @@ def test_run():
                               parse_dates=True, usecols=['Date', 'Adj Close'],
                               na_values=['nan'])
         df_temp = df_temp.rename(columns={'Adj Close':symbol})
-        df = df1.join(df_temp)
+        df1 = df1.join(df_temp)
+    print("The list:")
     print(df1)
     
 
