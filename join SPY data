@@ -11,36 +11,35 @@ def test_run():
     #create empty dataframe
     df1 = pd.DataFrame(index=dates) 
     
-    
     #Read spy data into tempo datafram
     dfSPY = pd.read_csv("/Users/khaled/All coding/data/SPY.csv", index_col="Date", 
                         parse_dates=True, usecols=['Date', 'Adj Close'],
                         na_values=['nan'])
+    
+    #rename the Adj Close columun to SPY to prevent clash
+    dfSPY = dfSPY.rename(columns={'Adj Close':'SPY'})
+    
     #join the 2 DF using DataFrame.join(), with how='inner'
     print("dfspy: " ,df1)
     df1=df1.join(dfSPY,how='inner')
-    
-   
     print("after join")
     print(df1)
-   
    
     #read more stocks
     symbols = ['GOOG', 'AAPL', 'GLD']
     
     #for loop to read and join each hstock like SPY
     for symbol in symbols:
-        df_temp = pd.read_csv("data/{}.csv".format(symbol), index_col ='Date', 
+        df_temp = pd.read_csv("/Users/khaled/All coding/data/{}.csv".format(symbol), index_col ='Date', 
                               parse_dates=True, usecols=['Date', 'Adj Close'],
                               na_values=['nan'])
+        df_temp = df_temp.rename(columns={'Adj Close':symbol})
         df = df1.join(df_temp)
     print(df1)
-    
     
 
 if __name__ == "__main__":
     test_run()
-#tom uttilty fun of reading data
     
 
 
