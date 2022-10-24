@@ -2,36 +2,39 @@ import os
 import pandas as pd
 
 
-print("woo")
+print("hello world")
 def test_run():
     start_date = ' 2022-10-01'
     end_date = '2022-10-18'
     dates = pd.date_range(start_date, end_date) # called daterange fun (for index)
     
     #create empty dataframe
-    df_empty = pd.DataFrame(index=dates) 
-    print("dfempty:", df_empty)
-    print()
+    df1 = pd.DataFrame(index=dates) 
+    
     
     #Read spy data into tempo datafram
     dfSPY = pd.read_csv("/Users/khaled/All coding/data/SPY.csv", index_col="Date", 
-                        parse_dates=True, usecols=['Date', 'Adj Close'], na_values=['nan'])
-    print("dfspy: " ,df_empty)
-    df_empty=df_empty.join(dfSPY)
-    #drop NaN Values
-    df_empty= df_empty.dropna()
-    print()
-    print("after merger/join: ",df_empty)
-    print("bbbboooom")
+                        parse_dates=True, usecols=['Date', 'Adj Close'],
+                        na_values=['nan'])
+    #join the 2 DF using DataFrame.join(), with how='inner'
+    print("dfspy: " ,df1)
+    df1=df1.join(dfSPY,how='inner')
+    
+   
+    print("after join")
+    print(df1)
+   
+   
     #read more stocks
     symbols = ['GOOG', 'AAPL', 'GLD']
     
+    #for loop to read and join each hstock like SPY
     for symbol in symbols:
-        df_temp = pd.read_csv("/Users/khaled/All coding/data/{}.csv".format(symbol), index_col ='Date', 
+        df_temp = pd.read_csv("data/{}.csv".format(symbol), index_col ='Date', 
                               parse_dates=True, usecols=['Date', 'Adj Close'],
                               na_values=['nan'])
-        df = df_empty.join(df_temp)
-    print(df_empty)
+        df = df1.join(df_temp)
+    print(df1)
     
     
 
@@ -47,7 +50,7 @@ if __name__ == "__main__":
 """Utility functions"""
 
 
-
+'''
 def symbol_to_path(symbol, base_dir="data"):
     """Return CSV file path given ticker symbol."""
     return os.path.join(base_dir, "{}.csv".format(str(symbol)))
@@ -79,3 +82,5 @@ def test_run():
 
 if __name__ == "__main__":
     test_run()
+
+'''
