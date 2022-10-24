@@ -62,7 +62,7 @@ def get_data(symbols, dates):
     for symbol in symbols:
         # TODO: Read and join data for each symbol
 
-    return df
+        return df
 
 
 def test_run():
