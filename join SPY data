@@ -24,7 +24,7 @@ def test_run():
     df1=df1.join(dfSPY,how='inner')
    
     #read more stocks
-    symbols = ['GOOG', 'AAPL', 'GLD']
+    symbols = ['GOOG', 'AAPL', 'GLD', 'TWTR']
     
     #for loop to read and join each hstock like SPY
     for symbol in symbols:
@@ -82,3 +82,4 @@ if __name__ == "__main__":
     test_run()
 
 '''
+#test
