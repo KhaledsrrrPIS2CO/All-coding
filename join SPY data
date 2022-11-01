@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 
 
 print("hello world")
@@ -35,6 +36,7 @@ def test_run():
         df1 = df1.join(df_temp)
     print("The list:")
     print(df1)
+    df1.plot()
     
 
 if __name__ == "__main__":
