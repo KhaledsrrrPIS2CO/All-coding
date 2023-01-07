@@ -21,3 +21,8 @@ stcoks = pd.read_csv('sp_500_stocks.csv')
 
 from secrets import IEX_CLOUD_API_TOKEN
 
+#Now API call, IEX Cloud API has good documentation 
+#we need 2 info 
+# 1st mkt cap 2nd stock price  
+symbol = 'AAPL' 
+api_url = "https://cloud.iexapis.com/"
